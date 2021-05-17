@@ -18,8 +18,8 @@ public final class StringUtils {
 
   public static boolean isEmpty(String packsUnformmated) {
     if ("".equals(packsUnformmated)) {
-      return true;
+      return Boolean.TRUE;
     }
-    return false;
+    return Boolean.FALSE;
   }
 }

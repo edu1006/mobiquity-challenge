@@ -1,46 +1,41 @@
 package com.mobiquity.packer.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map.Entry;
 
 class KnapsackOptimization {
 
-  public static String getIndexOptimizedFromPack(Entry<Integer, List<Item>> pack) {
+  private KnapsackOptimization() { 
+    
+  }
+  
+  public static List<Integer> getIndexOptimizedFromPack(Entry<Integer, List<Item>> pack) {
     if (pack.getValue().isEmpty()) {
-      return "-\n"; 
+      return Collections.emptyList(); 
     }
+ 
+    List<Integer> indexes = new ArrayList<>();
+    
     double maxCost = 0;
-    double maxWeight = 0;
     String s = "";
-    StringBuilder response = new StringBuilder(); 
     for (int i = 1; i <= pack.getValue().size(); i++) {
       String resultat = getOptimumFor(pack.getValue(), i, pack.getKey());
-//      System.out.println(resultat);
 
-      // System.out.println(resultat);
       String[] sub4 = resultat.split(",");
-      double cost = Double.parseDouble(sub4[sub4.length - 2]);
-      double weight = Double.parseDouble(sub4[sub4.length - 1]);
-     
+      var cost = Double.parseDouble(sub4[sub4.length - 2]);
       if (cost > maxCost) {
         maxCost = cost;
-        maxWeight = weight;
         s = resultat;
       }
     }
-    // System.out.println(s);
     String[] sub5 = s.split(",");
-    String ss = "";
     for (int i = 0; i < sub5.length - 2; i++) {
-      ss += pack.getValue().get(Integer.parseInt(sub5[i])).getId() + ",";
+      indexes.add(pack.getValue().get(Integer.parseInt(sub5[i])).getId()); 
     }
-    if (!ss.equals("")) {
-      response.append(ss.substring(0, ss.length() - 1)); 
-      response.append("\n"); 
 
-    }
-    return response.toString(); 
+    return indexes  ;
   }
 
   private static String getOptimumFor(List<Item> things, int r, int maxWt) {
@@ -63,12 +58,10 @@ class KnapsackOptimization {
         someWeight += things.get(res.get(i + j)).getWeight();
         someCost += things.get(res.get(i + j)).getCost();
       }
-      if (someWeight <= maxWt) {
-        if ((someCost > maxCost) || ((someCost == maxCost) && (someWeight <= maxWeight))) {
+      if (someWeight <= maxWt && (someCost > maxCost) || ((someCost == maxCost) && (someWeight <= maxWeight))) {
           indexSolution = i;
           maxWeight = someWeight;
           maxCost = someCost;
-        }
       }
     }
     for (int k = indexSolution; k < r + indexSolution; k++) {

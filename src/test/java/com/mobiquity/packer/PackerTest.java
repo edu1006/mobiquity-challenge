@@ -13,7 +13,7 @@ public class PackerTest {
   }
 
   @Test
-  public void shouldSuccessPack() throws APIException {
+  void shouldSuccessPack() throws APIException {
     String response = Packer.pack(
         "/home/eduardo/Downloads/Backend code assignment - Mobiquity 2021 (1)/src/main/resources/inputproblem.txt");
 
@@ -21,19 +21,19 @@ public class PackerTest {
   }
 
   @Test
-  public void shouldNotFindFile() {
+  void shouldNotFindFile() {
     try {
       Packer.pack("");
       throw new IllegalArgumentException("this test should be failed");
 
     } catch (APIException e) {
-      assertTrue(e.getMessage().equals("File not found"));
+      assertEquals("File not found", e.getMessage());
     }
 
   }
 
   @Test
-  public void shouldValidateWeightConstraint() {
+  void shouldValidateWeightConstraint() {
     try {
       Packer.pack(
           "/home/eduardo/Downloads/Backend code assignment - Mobiquity 2021 (1)/src/main/resources/input_with_weight_constraint.txt");
@@ -44,7 +44,7 @@ public class PackerTest {
   }
 
   @Test
-  public void shouldValidateMaxItemConstraint() {
+  void shouldValidateMaxItemConstraint() {
     try {
       Packer.pack(
           "/home/eduardo/Downloads/Backend code assignment - Mobiquity 2021 (1)/src/main/resources/input_with_max_item_constraint.txt");
@@ -54,9 +54,8 @@ public class PackerTest {
     }
   }
 
-
   @Test
-  public void shouldValidateMaxCoastAndWeightOfItem() {
+  void shouldValidateMaxCoastAndWeightOfItem() {
     try {
       Packer.pack(
           "/home/eduardo/Downloads/Backend code assignment - Mobiquity 2021 (1)/src/main/resources/input_with_coast_contraints.txt");

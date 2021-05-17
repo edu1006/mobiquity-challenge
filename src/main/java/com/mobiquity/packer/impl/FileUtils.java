@@ -11,12 +11,13 @@ import com.mobiquity.exception.APIException;
 
 public class FileUtils {
 
+  private FileUtils(){
+    
+  }
   public static List<String> extractLinesFromFilePath(String filePath) throws APIException {
-    File file = new File(filePath);
-    BufferedReader in = null;
+    var file = new File(filePath);
     List<String> lines = new ArrayList<>(); 
-    try {
-      in = new BufferedReader(new FileReader(file));
+    try (var in = new BufferedReader(new FileReader(file))) {
       String line = null; 
       while ((line = in.readLine()) != null) {
         lines.add(line);
