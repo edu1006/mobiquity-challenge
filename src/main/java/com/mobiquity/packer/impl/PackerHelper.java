@@ -7,6 +7,12 @@ import java.util.Map;
 
 import com.mobiquity.packer.utils.StringUtils;
 
+/**
+ * 
+ *Helper class to help ServiceIMpl in complex operations. 
+ *
+ *
+ */
 final class PackerHelper {
 
   private PackerHelper() {
@@ -23,7 +29,7 @@ final class PackerHelper {
     return packs;
   }
 
-  private static List<Item>extractPackFromLinePack(String linePack, double maxWeight) {
+  private static List<Item> extractPackFromLinePack(String linePack, double maxWeight) {
     List<Item> items = new ArrayList<>();
     String[] packsUnformmatedArry = StringUtils.splitStringByParam(linePack, " ");
     for (String packsUnformmated : packsUnformmatedArry) {
@@ -39,7 +45,7 @@ final class PackerHelper {
 
       }
     }
-    return items ;
+    return items;
   }
 
 }

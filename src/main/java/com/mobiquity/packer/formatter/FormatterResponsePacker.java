@@ -3,6 +3,11 @@ package com.mobiquity.packer.formatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * 
+ * This class provided API pattern formatter response basic
+ *  
+ */
 public final class FormatterResponsePacker {
 
   private FormatterResponsePacker() {

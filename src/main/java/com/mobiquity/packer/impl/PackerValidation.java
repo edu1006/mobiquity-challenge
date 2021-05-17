@@ -6,6 +6,11 @@ import java.util.Map.Entry;
 
 import com.mobiquity.exception.ConstraintsValidationException;
 
+/**
+ *
+ * Validation layer for validate all constraints
+ *
+ */
 final class PackerValidation {
 
   private static final Integer MAX_WEIGHT = 100;

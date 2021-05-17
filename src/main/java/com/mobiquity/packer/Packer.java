@@ -11,6 +11,13 @@ public class Packer {
   private Packer() {
   }
 
+  /**
+   * As a port of entrance of this API, this method should inject {@link PackerServiceFactory} 
+   * and run to Impl of {@link PackerService}
+   * @param filePath
+   * @return
+   * @throws APIException
+   */
   public static String pack(String filePath) throws APIException {
 
     Iterator<PackerServiceFactory> factories = ServiceLoader.load(PackerServiceFactory.class).iterator();

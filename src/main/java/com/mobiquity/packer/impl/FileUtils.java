@@ -8,8 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mobiquity.exception.APIException;
-
-public class FileUtils {
+/**
+ * Helper class to aux. in operations with files
+ * @author eduardo
+ *
+ */
+class FileUtils {
 
   private FileUtils(){
     

@@ -10,6 +10,15 @@ import com.mobiquity.exception.APIException;
 import com.mobiquity.packer.PackerService;
 import com.mobiquity.packer.formatter.FormatterResponsePacker;
 
+/**
+ * Implementation of {@link PackerService}
+ * 
+ * Here should contains all business rules for packing.  
+ * 
+ * This class class should be default for bringing a better encapsulation for API Impl  
+ * 
+ *
+ */
 class PackerServiceImpl implements PackerService {
 
   @Override

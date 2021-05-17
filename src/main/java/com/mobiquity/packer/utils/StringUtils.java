@@ -1,5 +1,10 @@
 package com.mobiquity.packer.utils;
 
+/**
+ *
+ * This class provided basic String operations. 
+ *
+ */
 public final class StringUtils {
   private StringUtils() {
 
